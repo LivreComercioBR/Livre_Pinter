@@ -67,7 +67,7 @@ WSGI_APPLICATION = 'livre_pint_pro.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'livre_pinterest',
+        'NAME': 'livre_pinter',
         'USER': 'root',
         'PASSWORD': 'Rv6041802009*',
         'HOST': 'localhost',
