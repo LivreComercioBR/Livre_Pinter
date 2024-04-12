@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'livre_pint_app',
+    'feed_app',
 ]
 
 MIDDLEWARE = [
@@ -67,7 +68,7 @@ WSGI_APPLICATION = 'livre_pint_pro.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'livre_pinterest',
+        'NAME': 'livre_pinter',
         'USER': 'root',
         'PASSWORD': 'Rv6041802009*',
         'HOST': 'localhost',

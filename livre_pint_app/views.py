@@ -79,6 +79,9 @@ def logar(request):
         else:
             auth.login(request, user)
             return redirect('/homepage/')
+        
+def perfil(request):
+    return render(request, 'perfil.html')
 
 
 def sair(request):
