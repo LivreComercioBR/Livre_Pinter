@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+{% extends 'base_user/base.html' %}
+{% load static %}
+
+{% block 'head' %}
+{% endblock %}
+
+{% block 'title' %}
+Cadastro
+{% endblock %}
+
+{% block 'main' %}
+
+<div class="container mt-5">
+  <h1 class="text-danger text-center">Cadastre-se</h1>
+  {% if messages %}
+  {% for message in messages %}
+  <div class="alert {{message.tags}}">
+    {{message}}
+  </div>
+  {% endfor %}
+  {% endif %}
+
+  <hr>
+  <form method="POST" action="{% url 'cadastro' %}" id="cadCliente">{% csrf_token %}
+    <div class="row justify-content-center">
+      <div class="col-sm-12 col-md-6">
+        <fieldset class="row" name="dadospessoais">
+          <legend>Dados Pessoais</legend>
+          <div class="mb-3">
+            <label for="txtNomeUsuario" class="form-label"><strong>Nome de Usuário</strong></label>
+            <input type="text" class="form-control" id="txtNomeUsuario" name="username"
+              placeholder="Nome de usuário deverá diferente do primeiro nome">
+          </div>
+          <div class="mb-3">
+            <label for="txtEmail" class="form-label"><strong>E-mail</strong></label>
+            <input type="text" class="form-control" id="txtEmail" name="email" placeholder="Seu melhor e-mail">
+          </div>
+
+          <div class="mb-3">
+            <label for="txtPassword" class="form-label"><strong>Senha</strong></label>
+            <input type="password" class="form-control" id="txtPassword" name="password">
+            <span class="form-text">Sua senha deve possuir no mínimo 8 caracteres, e letras e números</span>
+          </div>
+          <div class="mb-3">
+            <label for="txtConfPassword" class="form-label"><strong>Confirmar Senha</strong></label>
+            <input type="password" class="form-control" id="txtConfPassword" name="confpassword">
+          </div>
+        </fieldset>
+      </div>
+
+    </div>
+    <hr>
+    <div class="row justify-content-center">
+      <div class="col-sm-12 col-md-6">
+        <div class="form-check mb-3 ">
+          <input type="checkbox" class="form-check-input" value="{{usuario.id}}" id="chkNewsLetters">
+          <label for="chkNewsLetters" class="form-check-label"><strong>Gostaria ficar atualizado com as
+              novidades</strong></label>
+        </div>
+        <div class="mb-3">
+          <a href="{% url 'logar' %}" class="btn btn-light btn-outline-danger">Logar</a>
+          <input type="submit" value="Criar meu cadastro" class="btn btn-danger">
+
+        </div>
+      </div>
+    </div>
+  </form>
+
+</div>
+
+{% endblock %}
+
+</html>

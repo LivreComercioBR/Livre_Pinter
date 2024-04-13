@@ -16,6 +16,7 @@ def cadastro(request):
             return redirect('/homepage/')
         return render(request, 'cadastro.html')
     elif request.method == "POST":
+        foto_perfil = request.FILES.get("photo")
         username = request.POST.get("username")
         email = request.POST.get("email")
         password = request.POST.get("password")
@@ -66,7 +67,7 @@ def logar(request):
     if request.method == "GET":
         if request.user.is_authenticated:
             return redirect('/homepage/')
-        return render(request, 'logar.html')
+        return render(request, 'login.html')
     elif request.method == "POST":
         username = request.POST.get("username")
         password = request.POST.get("password")
@@ -75,11 +76,12 @@ def logar(request):
         if not user:
             messages.add_message(request, constants.ERROR,
                                  'Usuário ou senha inválidos!')
-            return render(request, 'logar.html')
+            return render(request, 'login.html')
         else:
             auth.login(request, user)
             return redirect('/homepage/')
-        
+
+
 def perfil(request):
     return render(request, 'perfil.html')
 
