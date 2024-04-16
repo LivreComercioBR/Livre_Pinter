@@ -1,13 +1,43 @@
-{% extends 'base_user/base.html' %}
+{% extends 'feed/base_feed.html' %}
+{% load static %}
 
 {% block 'title' %}
 Homepage
 {% endblock %}
 
-{% block 'head' %}{% endblock %}
-
-{% block 'main' %}
-<h1>This is my homepage</h1>
+{% block 'head' %}
+<link rel="stylesheet" href="{% static 'css/navbar.css' %}">
 {% endblock %}
 
-{% block 'body' %}{% endblock %}
+
+{% block 'main' %}
+<div class="container">
+    <h1 style="text-align: center;">Encontre sua próxima</h1>
+    <br>
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <h5>Idéias para a sua próxima viagem</h5>
+            </div>
+            <div class="carousel-item">
+                <h5>Ideias criativas para o seu casamento</h5>
+            </div>
+            <div class="carousel-item">
+                <h5>Ideias para o seu dia-a-dia</h5>
+            </div>
+        </div>
+    </div>
+    <div class="row g-3">
+
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+            <div class="card text-center bg-light">
+                <a href="#">
+                    <img src="#" class="card-img-top" alt="">
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+{% endblock %}

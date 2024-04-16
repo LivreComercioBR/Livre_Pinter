@@ -1,0 +1,109 @@
+<!doctype html>
+{% load static %}
+<html lang="pt-BR">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+        integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+
+    <title>
+        {% block 'title'%}
+
+        {% endblock 'title' %}
+    </title>
+
+    {% block 'head' %}
+
+    {% endblock 'head' %}
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+</head>
+
+<body>
+    {% block 'navbar' %}
+    <nav>
+        <div class="d-flex flex-column wrapper">
+            <nav class="navbar navbar-expand-lg mb-3 fixed-top">
+                <div class="container-fluid" id="nav-container">
+                    <a class="navbar-brand" href="{% url 'homepage' %}"><img src="{% static 'img/logo100.png' %}"
+                            alt="Logo Empresa" width="75" height="75">&nbsp
+                        <strong>Livre Pinter</strong></a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target=".navbar-collapse">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse">
+                        <div class="navbar-nav ">
+                            <a class="nav-item nav-link" href="{% url 'homepage' %}"><b>Hoje</b>
+                            </a>
+                        </div>
+                        <div class="navbar-nav ">
+                            <a class="nav-item nav-link" href="{% url 'homepage' %}"><b>Explorar</b>
+                            </a>
+                        </div>
+
+                        <div class="navbar-nav justify-content-end flex-grow-1" id="navbar-links">
+                            <div class="navbar-nav ">
+                                <a class="nav-item nav-link" href="{% url 'homepage' %}"><b>Sobre</b>
+                                </a>
+                            </div>
+                            <div class="navbar-nav ">
+                                <a class="nav-item nav-link" href="{% url 'homepage' %}"><b>Business</b>
+                                </a>
+                            </div>
+                            <div class="navbar-nav ">
+                                <a class="nav-item nav-link" href="{% url 'homepage' %}"><b>Blog</b>
+                                </a>
+                            </div>
+                            {% if request.user.is_authenticated %}
+                            <div class="navbar-nav">
+                                <a class="btn btn-danger btn-lg rounded-pill" href="{% url 'sair' %}">Sair</a>
+                            </div>
+
+                            {% else %}
+
+                            <div class="navbar-nav mr-2">
+                                <a class="btn btn-danger btn-lg rounded-pill" href="{%  url 'logar' %}">Entrar</a>
+                            </div>
+                            <div class="navbar-nav"></div>
+                            <div class="navbar-nav me-2">
+                                <a class="btn btn-secondary btn-lg rounded-pill" href="{% url 'cadastro' %}">Criar
+                                    Conta</a>
+                            </div>
+                            {% endif %}
+
+                        </div>
+                    </div>
+                </div>
+
+            </nav>
+
+            <main class="flex-fill mb-sm-10 mb-md-7 p-sm-7 p-md-5">
+            </main>
+
+        </div>
+    </nav>
+    {% endblock %}
+
+    {% block 'main' %}
+
+    {% endblock 'main' %}
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- Popper.js first, then Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+        integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

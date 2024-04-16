@@ -1,0 +1,23 @@
+
+/* NAVBAR */
+.navbar-brand {
+    color: rgb(217, 55, 55);
+}
+
+.nav-link {
+    color: rgb(21, 21, 21);
+    font-size: 19px;
+}
+
+.nav-link a:hover {
+    border-radius: 50%;
+    color: rgb(128, 124, 124);
+    background-color: rgb(168, 168, 104);
+}
+
+/* Seção Main */
+
+h1 {
+    font-size: 4.5rem;
+    
+}
