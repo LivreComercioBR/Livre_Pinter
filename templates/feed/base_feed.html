@@ -60,6 +60,10 @@
                                 </a>
                             </div>
                             {% if request.user.is_authenticated %}
+                            <div class="navbar-nav ">
+                                <a class="nav-item nav-link" href="{% url 'post' %}"><b>Feed</b>
+                                </a>
+                            </div>
                             <div class="navbar-nav">
                                 <a class="btn btn-danger btn-lg rounded-pill" href="{% url 'sair' %}">Sair</a>
                             </div>

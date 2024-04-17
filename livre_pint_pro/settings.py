@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'livre_pint_app',
+    'feed_app',
 ]
 
 MIDDLEWARE = [

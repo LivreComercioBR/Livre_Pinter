@@ -1,0 +1,34 @@
+{% extends 'feed/base_feed.html' %}
+
+
+
+
+
+{% block 'main' %}
+<div class="container">
+
+    <h2 class="mb-5" style="align-self: center;">Olá {{request.user}} - Faça a sua postagem</h2>
+    <div class="col-12 col-sm-6" style="align-self: center;">
+        <form class="div-input" action="{% url 'post' %}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="bloco-add-img">
+                <div class="bloco-arquivo">
+                    <label for="foto" class="botao-arquivo">
+                        Escolher arquivo
+                        <input class="input-arquivo" id="foto" name="imagem" required="" type="file" />
+                    </label>
+                    <span id="imagem-arquivo" class=""></span>
+                </div>
+            </div>
+            <div class="div-input">
+                <p class="label"><b>Titulo</b></p>
+                <input class="input" placeholder="Título do post" name="titulo" />
+            </div>
+
+            <div class="div-botao">
+                <button type="submit" class="botao-login">Postar</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock 'main' %}
