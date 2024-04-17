@@ -61,6 +61,10 @@
                             </div>
                             {% if request.user.is_authenticated %}
                             <div class="navbar-nav ">
+                                <a class="nav-item nav-link" href="{% url 'perfil' %}"><b>Perfil</b>
+                                </a>
+                            </div>
+                            <div class="navbar-nav ">
                                 <a class="nav-item nav-link" href="{% url 'post' %}"><b>Feed</b>
                                 </a>
                             </div>

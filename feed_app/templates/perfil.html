@@ -1,15 +1,16 @@
 {% extends 'feed/base_feed.html' %}
 
 {% block 'title' %}
-Posts
+Perfil
 {% endblock %}
+
 
 {% block 'main' %}
 <div class="container">
 
-    <h2 class="mb-5" style="align-self: center;">Olá {{request.user}} - Faça a sua postagem</h2>
+    <h2 class="mb-5" style="align-self: center;">Olá {{request.user}} - Aqui estão as suas postagens</h2>
     <div class="col-12 col-sm-6" style="align-self: center;">
-        <form class="div-input" action="{% url 'post' %}" method="POST" enctype="multipart/form-data">
+        <form class="div-input" action="{% url 'perfil' %}" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             <div class="bloco-add-img">
                 <div class="bloco-arquivo">
@@ -25,10 +26,25 @@ Posts
                 <input class="input" placeholder="Título do post" name="titulo" />
             </div>
 
-            <div class="div-botao">
+            <div class="btn btn-danger rounded-pill mt-2">
                 <button type="submit" class="botao-login">Postar</button>
             </div>
         </form>
+    </div>
+    <div class="row g-3">
+        {% for post in posts %}
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+
+            <div class="card text-center bg-light posts">
+                <a href="">
+                    {% if post.imagem %}
+                    <img src="{{post.imagem.url}}" class="card-img-top" alt="">
+                    {% endif %}
+                </a>
+            </div>
+
+        </div>
+        {% endfor %}
     </div>
 </div>
 {% endblock 'main' %}
