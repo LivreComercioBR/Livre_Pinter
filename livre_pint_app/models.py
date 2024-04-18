@@ -1,7 +1,6 @@
 import datetime
 from django.db import models
 from django.contrib.auth.models import AbstractUser, UserManager
-from django.utils.safestring import mark_safe
 
 
 class User(AbstractUser, UserManager):
@@ -9,6 +8,12 @@ class User(AbstractUser, UserManager):
     email = models.EmailField(max_length=264)
     password = models.CharField(max_length=264)
     foto_perfil = models.ImageField(
+<<<<<<< HEAD
+        upload_to='foto_perfil', blank=True, null=True)
+
+    def __str__(self):
+        return self.username
+=======
         upload_to='foto_usuarios', blank=True, null=True)
 
     def __str__(self):
@@ -33,3 +38,4 @@ class User(AbstractUser, UserManager):
 
 #     def __str__(self):
 #         return self.titulo
+>>>>>>> 7e11aa10d035a3e8e63423f146927e8081360b30

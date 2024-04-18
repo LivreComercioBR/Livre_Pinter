@@ -4,10 +4,12 @@ from django.contrib import messages, auth
 from django.contrib.messages import constants
 from .utils import checar_senha
 from .models import User
+from feed_app.models import Post
 
 
 def homepage(request):
-    return render(request, 'homepage.html')
+    posts = Post.objects.all()
+    return render(request, 'homepage.html', {'posts': posts})
 
 
 def cadastro(request):
@@ -48,7 +50,8 @@ def cadastro(request):
         user = User.objects.create_user(
             username=username,
             email=email,
-            password=password
+            password=password,
+            foto_perfil=foto_perfil,
         )
         user.save()
         messages.add_message(request, constants.SUCCESS,
