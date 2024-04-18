@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 {% load static %}
+<<<<<<< HEAD
 <html lang="pt-BR">
+=======
+<html lang="pt">
+>>>>>>> 7e11aa10d035a3e8e63423f146927e8081360b30
 
 <head>
   <meta charset="UTF-8" />
@@ -46,7 +50,19 @@
         </svg>
 
         <h2>Bem-vindo(a) ao Livre Pinter</h2>
+<<<<<<< HEAD
         <form class="div-input" action="{% url 'logar' %}" method="POST">{% csrf_token %}
+=======
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert {{message.tags}}">
+          {{message}}
+        </div>
+        {% endfor %}
+        {% endif %}
+        <form class="div-input" action="{% url 'logar' %}" method="POST">
+          {% csrf_token %}
+>>>>>>> 7e11aa10d035a3e8e63423f146927e8081360b30
           <div class="div-input">
             <p class="label"><b>Usuário</b></p>
             <input class="input" placeholder="Nome de usuário" name="username" />
@@ -64,7 +80,10 @@
         </form>
       </div>
     </div>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7e11aa10d035a3e8e63423f146927e8081360b30
   </div>
 </body>
 
