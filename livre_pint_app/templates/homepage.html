@@ -14,29 +14,64 @@ Homepage
 <div class="container">
     <h1 style="text-align: center;">Encontre sua próxima</h1>
     <br>
-    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+
+    <div id="carouselExampleDark" class="carousel carousel-dark slide">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"
+                aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1"
+                aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2"
+                aria-label="Slide 3"></button>
+        </div>
         <div class="carousel-inner">
-            <div class="carousel-item active">
-                <h5>Idéias para a sua próxima viagem</h5>
+            <div class="carousel-item active" data-bs-interval="10000">
+                <div class="carousel-caption d-none d-md-block">
+                    <h2 style="font-size: 65px; color: burlywood;">Look de verão</h2>
+                </div>
+                <img src="{% static 'img/pinterest16.jpg' %}" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item" data-bs-interval="2000">
+                <div class="carousel-caption d-none d-md-block">
+                    <h2 style="font-size: 65px; color: blue;">Ideias de crianças</h2>
+                </div>
+                <img src="{% static 'img/pinterest13.jpg' %}" class="d-block w-100" alt="...">
             </div>
             <div class="carousel-item">
-                <h5>Ideias criativas para o seu casamento</h5>
-            </div>
-            <div class="carousel-item">
-                <h5>Ideias para o seu dia-a-dia</h5>
+                <div class="carousel-caption d-none d-md-block">
+                    <h2 style="font-size: 65px; color: aquamarine;">Ideias especiais para um jantar</h2>
+                </div>
+                <img src="{% static 'img/pinterest17.jpg' %}" class="d-block w-100" alt="...">
             </div>
         </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev"
+            style="color: black;">
+            <span class="carousel-control-prev-icon" aria-hidden="true" style="color: black;"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next"
+            style="color: black;">
+            <span class="carousel-control-next-icon" aria-hidden="true" style="color: black;"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
     </div>
-    <div class="row g-3">
 
+
+
+    <div class="row g-3">
+        {% for post in posts %}
         <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <div class="card text-center bg-light">
-                <a href="#">
-                    <img src="#" class="card-img-top" alt="">
+
+            <div class="card text-center bg-light posts">
+                <a href="">
+                    {% if post.imagem %}
+                    <img src="{{post.imagem.url}}" class="card-img-top" alt="">
+                    {% endif %}
                 </a>
             </div>
-        </div>
 
+        </div>
+        {% endfor %}
     </div>
 
 </div>

@@ -4,10 +4,12 @@ from django.contrib import messages, auth
 from django.contrib.messages import constants
 from .utils import checar_senha
 from .models import User
+from feed_app.models import Post
 
 
 def homepage(request):
-    return render(request, 'homepage.html')
+    posts = Post.objects.all()
+    return render(request, 'homepage.html', {'posts': posts})
 
 
 def cadastro(request):
@@ -81,6 +83,10 @@ def logar(request):
         else:
             auth.login(request, user)
             return redirect('/homepage/')
+
+
+def perfil(request):
+    return render(request, 'perfil.html')
 
 
 def sair(request):
