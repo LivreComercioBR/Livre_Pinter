@@ -85,6 +85,10 @@ def logar(request):
             return redirect('/homepage/')
 
 
+def perfil(request):
+    return render(request, 'perfil.html')
+
+
 def sair(request):
     auth.logout(request)
     return redirect('/logar')

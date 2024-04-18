@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
 from .models import Post
@@ -43,3 +44,10 @@ def perfil(request):
         messages.add_message(request, constants.SUCCESS,
                              'Post realizado com sucesso!')
         return redirect('/homepage')
+=======
+from django.shortcuts import render
+
+
+def post(request):
+    return render(request, 'post.html')
+>>>>>>> 7e11aa10d035a3e8e63423f146927e8081360b30
